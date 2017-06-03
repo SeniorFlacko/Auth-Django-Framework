@@ -40,6 +40,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'account',
     'social.apps.django_app.default',
+    'images',
+    'sorl.thumbnail',
+    'actions',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -135,3 +138,11 @@ SOCIAL_AUTH_TWITTER_SECRET = 'z0m6FlS3sIBRZYxWYS1lzoqtmhy92wnp6uYxWYVuIe6h18A5yk
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '873427617425-pbgflco2ro8t26bu2d50508rg5b7ql6f.apps.googleusercontent.com' # Google Consumer Key
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'ywV5pFWxyIUBlcMxm3axrWhU' # Google Consumer Secret
+
+
+THUMBNAIL_DEBUG = True
+
+
+ABSOLUTE_URL_OVERRIDES = {
+'auth.user': lambda u: reverse_lazy('user_detail',args=[u.username])
+}
